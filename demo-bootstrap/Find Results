@@ -1,0 +1,174 @@
+Searching 37759 files for "fasterxml"
+
+/Users/dblitz/sample-mpconf/build.gradle:
+   39      compile "javax:javaee-api:7.0"
+   40      compile "io.swagger:swagger-jaxrs:1.5.10"
+   41:     compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.2"
+   42:     compile "com.fasterxml.jackson.core:jackson-annotations:2.82"
+   43      compile "org.apache.commons:commons-lang3:3.4"
+   44      compile "org.codehaus.swizzle:swizzle-stream:1.6.2"
+   ..
+   50      compile "org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final"
+   51      compile "org.jboss.resteasy:resteasy-jackson-provider:3.0.19.Final"
+   52:     compile "com.fasterxml.jackson.core:jackson-databind:2.8.2"
+   53      compile "junit:junit:4.12"
+   54      compile "net.javacrumbs.json-unit:json-unit-fluent:1.12.1"
+
+/Users/dblitz/sample-mpconf/microservice-session/build.gradle:
+    6    compile project(':demo-bootstrap')
+    7      providedCompile group: 'javax', name: 'javaee-api', version:'7.0'
+    8:     providedCompile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.8.2'
+    9  }
+   10  
+
+/Users/dblitz/sample-mpconf/microservice-session/build.gradle.bak:
+    6    compile project(':demo-bootstrap')
+    7      providedCompile group: 'javax', name: 'javaee-api', version:'7.0'
+    8:     providedCompile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.8.2'
+    9  }
+   10  
+
+/Users/dblitz/sample-mpconf/microservice-session/pom.xml:
+  137  
+  138          <dependency>
+  139:             <groupId>com.fasterxml.jackson.core</groupId>
+  140              <artifactId>jackson-annotations</artifactId>
+  141              <version>2.8.2</version>
+
+/Users/dblitz/sample-mpconf/microservice-session/src/main/java/io/microprofile/showcase/session/Session.java:
+   15  package io.microprofile.showcase.session;
+   16  
+   17: import com.fasterxml.jackson.annotation.JsonIgnore;
+   18  
+   19  import javax.json.JsonObject;
+
+/Users/dblitz/sample-mpconf/microservice-speaker/build.gradle:
+    9      compile group: 'commons-collections', name: 'commons-collections', version:'3.2.2'
+   10      compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+   11:     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.8.2'
+   12:     compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version:'2.8.2'
+   13      testCompile group: 'org.jboss.arquillian.container', name: 'arquillian-wlp-managed-8.5', version:'1.0.0.Beta1'
+   14      testCompile group: 'net.javacrumbs.json-unit', name: 'json-unit-fluent', version:'1.12.1'
+
+/Users/dblitz/sample-mpconf/microservice-speaker/build.gradle.bak:
+    9      compile group: 'commons-collections', name: 'commons-collections', version:'3.2.2'
+   10      compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+   11:     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.8.2'
+   12:     compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version:'2.8.2'
+   13      testCompile group: 'org.jboss.arquillian.container', name: 'arquillian-wlp-managed-8.5', version:'1.0.0.Beta1'
+   14      testCompile group: 'net.javacrumbs.json-unit', name: 'json-unit-fluent', version:'1.12.1'
+
+/Users/dblitz/sample-mpconf/microservice-speaker/pom.xml:
+  192          </dependency>
+  193          <dependency>
+  194:             <groupId>com.fasterxml.jackson.core</groupId>
+  195              <artifactId>jackson-databind</artifactId>
+  196          </dependency>
+  197          <dependency>
+  198:             <groupId>com.fasterxml.jackson.jaxrs</groupId>
+  199              <artifactId>jackson-jaxrs-json-provider</artifactId>
+  200          </dependency>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/src/main/java/io/microprofile/showcase/speaker/domain/VenueJavaOne2016.java:
+   14  package io.microprofile.showcase.speaker.domain;
+   15  
+   16: import com.fasterxml.jackson.core.type.TypeReference;
+   17: import com.fasterxml.jackson.databind.ObjectMapper;
+   18  import io.microprofile.showcase.speaker.model.Speaker;
+   19  import org.apache.commons.io.IOUtils;
+
+/Users/dblitz/sample-mpconf/microservice-speaker/src/main/webapp/WEB-INF/openejb-jar.xml:
+   18      <pojo-deployment class-name="jaxrs-application">
+   19          <properties>
+   20:             cxf.jaxrs.providers = com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider,com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider
+   21          </properties>
+   22      </pojo-deployment>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/src/test/java/io/microprofile/showcase/speaker/domain/VenueJavaOne2016Test.java:
+   14  package io.microprofile.showcase.speaker.domain;
+   15  
+   16: import com.fasterxml.jackson.core.type.TypeReference;
+   17: import com.fasterxml.jackson.databind.ObjectMapper;
+   18  import io.microprofile.showcase.speaker.model.Speaker;
+   19  import org.junit.Assert;
+
+/Users/dblitz/sample-mpconf/microservice-speaker/src/test/java/io/microprofile/showcase/speaker/rest/ResourceSpeakerTest.java:
+   52          final File bootstrapLib = Maven.resolver().resolve("io.microprofile.showcase:demo-bootstrap:1.0.0-SNAPSHOT").withoutTransitivity().asSingleFile();
+   53          final File swizzleLib = Maven.resolver().resolve("org.codehaus.swizzle:swizzle-stream:1.6.2").withoutTransitivity().asSingleFile();
+   54:         final File jacksonCoreLib = Maven.resolver().resolve("com.fasterxml.jackson.core:jackson-core:2.8.2").withoutTransitivity().asSingleFile();
+   55:         final File jacksonDatabindLib = Maven.resolver().resolve("com.fasterxml.jackson.core:jackson-databind:2.8.2").withoutTransitivity().asSingleFile();
+   56:         final File jacksonAnnotationsLib = Maven.resolver().resolve("com.fasterxml.jackson.core:jackson-annotations:2.8.2").withoutTransitivity().asSingleFile();
+   57          final File commonsCollectionsLib = Maven.resolver().resolve("commons-collections:commons-collections:3.2.2").withoutTransitivity().asSingleFile();
+   58          final File commonsLang3Lib = Maven.resolver().resolve("org.apache.commons:commons-lang3:3.4").withoutTransitivity().asSingleFile();
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_14/.cache/WEB-INF/lib/jackson-annotations-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_14/.cache/WEB-INF/lib/jackson-core-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_14/.cache/WEB-INF/lib/jackson-databind-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-annotations-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-core-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-databind-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-jaxrs-base-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-jaxrs-json-provider-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/liberty/wlp/usr/servers/speakerServer/workarea/org.eclipse.osgi/73/data/cache/com.ibm.ws.app.manager_5/.cache/WEB-INF/lib/jackson-module-jaxb-annotations-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-annotations-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-core-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-databind-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-jaxrs-base-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-jaxrs-json-provider-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/lib/jackson-module-jaxb-annotations-2.8.2.jar:
+    <binary>
+
+/Users/dblitz/sample-mpconf/microservice-speaker/target/microservice-speaker/WEB-INF/openejb-jar.xml:
+   18      <pojo-deployment class-name="jaxrs-application">
+   19          <properties>
+   20:             cxf.jaxrs.providers = com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider,com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider
+   21          </properties>
+   22      </pojo-deployment>
+
+/Users/dblitz/sample-mpconf/pom.xml:
+  154              </dependency>
+  155              <dependency>
+  156:                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
+  157                  <artifactId>jackson-jaxrs-json-provider</artifactId>
+  158                  <version>${version.jackson}</version>
+  159              </dependency>
+  160              <dependency>
+  161:                 <groupId>com.fasterxml.jackson.core</groupId>
+  162                  <artifactId>jackson-annotations</artifactId>
+  163                  <version>${version.jackson}</version>
+  ...
+  216              </dependency>
+  217              <dependency>
+  218:                 <groupId>com.fasterxml.jackson.core</groupId>
+  219                  <artifactId>jackson-databind</artifactId>
+  220                  <version>${version.jackson}</version>
+
+5027 matches across 29 files
