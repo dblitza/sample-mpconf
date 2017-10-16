@@ -1,8 +1,0 @@
-> allSessionVotes() session1
-2session2 = [508668ad-632c-4553-af36-b8e99876c46d]
-~session1 = [b24f7f2b-2983-4395-810e-1c4c118b8809, dd4f6026-7ada-4d18-ab98-698911ab993b, f19da749-d2eb-4d77-8d19-6fdaf17afb77]
-> allSessionVotes() session1
-2session2 = [5277483a-7ff5-4e6e-8efd-84aafce1373f]
-~session1 = [1a838a92-3ae4-4b90-b9d7-51e08cf137d1, 804874b0-264e-4230-a884-07c8fa423ec5, d432c628-2cde-49b6-8920-5274b4609de8]
-	> allSessionVotes() session1
-	2session1 = [442c333a-dc83-4552-a982-a2f473596e73]

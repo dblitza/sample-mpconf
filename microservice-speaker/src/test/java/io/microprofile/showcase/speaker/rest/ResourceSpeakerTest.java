@@ -41,7 +41,7 @@ import java.net.URL;
 import java.util.Set;
 import java.util.logging.Logger;
 
-// @RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class ResourceSpeakerTest {
 
     // private final Logger log = Logger.getLogger(ResourceSpeakerTest.class.getName());

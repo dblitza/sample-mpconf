@@ -34,6 +34,7 @@ repositories {
     mavenCentral()   
 }
 
+//Demo Bootstrap Project Build.gradle
 project(':demo-bootstrap') {
     apply plugin: 'maven'
     apply plugin: 'war'
@@ -41,16 +42,24 @@ project(':demo-bootstrap') {
     dependencies {
       compileOnly group: 'javax', name: 'javaee-api', version:'7.0'
       compileOnly group: 'org.glassfish', name: 'javax.json', version:'1.0.4'
+      testCompile group: 'org.glassfish', name: 'javax.json', version:'1.0.4'
       testCompile group: 'junit', name: 'junit', version: '4.12'
 
     }
+
 }
 
+
+
+//Microservice Speaker Project Build.gradle
 project(':microservice-speaker') {
     apply plugin: 'maven'
     apply plugin: 'war'
+    // apply plugin: 'liberty'
+
     
     dependencies {
+      compile project(':demo-bootstrap')
       compile group: 'org.codehaus.swizzle', name: 'swizzle-stream', version:'1.6.2'
       compile group: 'commons-io', name: 'commons-io', version:'2.5'
       compile group: 'commons-collections', name: 'commons-collections', version:'3.2.2'
@@ -76,6 +85,8 @@ project(':microservice-speaker') {
 project(':microservice-vote') {
     apply plugin: 'maven'
     apply plugin: 'war'
+    // apply plugin: 'liberty'
+
 
     dependencies {
       // runtime group: 'net.wasdev.wlp.starters.microprofile', name: 'runtime-pom', version:'0.0.1-SNAPSHOT'
@@ -89,6 +100,16 @@ project(':microservice-vote') {
       testCompile group: 'junit', name: 'junit', version: '4.12'
 
     }
+
+    // task printMessageAboutRunningServer {
+    // doLast {
+    //         println "The server is now running at http://localhost:${testServerHttpPort}/${warContext}"
+    //         println "To stop the server run 'gradle libertyStop'"
+    //     }
+    // }
+
+    // libertyStart.dependsOn 'installApps'
+    // libertyStart.finalizedBy 'printMessageAboutRunningServer'
 
     
 }
