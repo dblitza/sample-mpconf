@@ -37,14 +37,63 @@ repositories {
 project(':demo-bootstrap') {
     apply plugin: 'maven'
     apply plugin: 'war'
-    
+
     dependencies {
-    compileOnly group: 'javax', name: 'javaee-api', version:'7.0'
-    compileOnly group: 'org.glassfish', name: 'javax.json', version:'1.0.4'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+      compileOnly group: 'javax', name: 'javaee-api', version:'7.0'
+      compileOnly group: 'org.glassfish', name: 'javax.json', version:'1.0.4'
+      testCompile group: 'junit', name: 'junit', version: '4.12'
 
     }
 }
+
+project(':microservice-speaker') {
+    apply plugin: 'maven'
+    apply plugin: 'war'
+    
+    dependencies {
+      compile group: 'org.codehaus.swizzle', name: 'swizzle-stream', version:'1.6.2'
+      compile group: 'commons-io', name: 'commons-io', version:'2.5'
+      compile group: 'commons-collections', name: 'commons-collections', version:'3.2.2'
+      compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+      compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.8.2'
+      compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version:'2.8.2'
+      testCompile group: 'org.jboss.arquillian.container', name: 'arquillian-wlp-managed-8.5', version:'1.0.0.Beta1'
+      testCompile group: 'net.javacrumbs.json-unit', name: 'json-unit-fluent', version:'1.12.1'
+      testCompile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version:'3.0.19.Final'
+      testCompile group: 'org.jboss.resteasy', name: 'resteasy-client', version:'3.0.19.Final'
+      testCompile group: 'org.jboss.shrinkwrap.resolver', name: 'shrinkwrap-resolver-impl-maven', version:'2.2.0'
+      providedCompile group: 'javax.enterprise', name: 'cdi-api', version:'1.2'
+      providedCompile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version:'2.0'
+      testCompile group: 'junit', name: 'junit', version: '4.12'
+      testCompile group: 'org.jboss.arquillian.container', name: 'arquillian-wlp-managed-8.5', version:'1.0.0.Beta1'
+      testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container', version: '1.1.11.Final'
+
+
+    }
+}
+
+
+project(':microservice-vote') {
+    apply plugin: 'maven'
+    apply plugin: 'war'
+
+    dependencies {
+      // runtime group: 'net.wasdev.wlp.starters.microprofile', name: 'runtime-pom', version:'0.0.1-SNAPSHOT'
+      testCompile group: 'org.glassfish.jersey.core', name: 'jersey-common', version:'2.23.2'
+      testCompile group: 'org.apache.cxf', name: 'cxf-rt-rs-client', version:'3.1.1'
+      testCompile group: 'org.glassfish', name: 'javax.json', version:'1.0.4'
+      // providedCompile group: 'net.wasdev.wlp.starters.microprofile', name: 'provided-pom', version:'0.0.1-SNAPSHOT'
+      providedCompile group: 'javax.annotation', name: 'javax.annotation-api', version:'1.2'
+      compileOnly group: 'javax', name: 'javaee-api', version:'7.0'
+      compile project(':demo-bootstrap')
+      testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    }
+
+    
+}
+
+
 
 // project(':template-server') {
 //     apply plugin: 'war'
